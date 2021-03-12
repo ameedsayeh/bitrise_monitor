@@ -9,12 +9,53 @@ class GrantAccessScreen extends StatelessWidget {
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 24.0),
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
             children: [
               _EnterTokenText(),
               _TokenTextField(),
               _HowToText(),
+              _GrantAccessButton(),
             ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class _GrantAccessButton extends StatelessWidget {
+  const _GrantAccessButton({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.only(top: 16.0),
+      child: SizedBox(
+        height: 60,
+        child: ElevatedButton(
+          style: ButtonStyle(
+            backgroundColor: MaterialStateProperty.all(Colors.white),
+          ),
+          onPressed: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (_) => GrantAccessScreen(),
+              ),
+            );
+          },
+          child: Padding(
+            padding: const EdgeInsets.only(right: 16, left: 16),
+            child: Text(
+              "Grant Access",
+              style: TextStyle(
+                color: Color(0xFF381A4B),
+                fontSize: 22,
+                fontFamily: "TTNorms",
+                fontWeight: FontWeight.bold,
+              ),
+            ),
           ),
         ),
       ),
