@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 
 class GrantAccessScreen extends StatelessWidget {
   @override
@@ -7,9 +8,12 @@ class GrantAccessScreen extends StatelessWidget {
       backgroundColor: Color(0xFF381A4B),
       body: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 24.0),
+          padding: const EdgeInsets.symmetric(horizontal: 24.0, vertical: 32.0),
           child: Column(
             children: [
+              SizedBox(
+                  height: 150,
+                  child: SvgPicture.asset("lib/assets/images/lock.svg")),
               _EnterTokenText(),
               _TokenTextField(),
               _HowToText(),
@@ -30,7 +34,7 @@ class _GrantAccessButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(top: 16.0),
+      padding: const EdgeInsets.only(top: 32.0),
       child: SizedBox(
         height: 60,
         child: ElevatedButton(
@@ -95,7 +99,7 @@ class _EnterTokenText extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(bottom: 32),
+      padding: const EdgeInsets.only(bottom: 32, top: 32),
       child: Text(
         "Please enter your bitrise access token",
         style: TextStyle(

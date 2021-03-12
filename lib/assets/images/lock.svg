@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="466px" height="530px" viewBox="0 0 466 530" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>password</title>
+    <defs>
+        <filter x="-2.7%" y="-2.3%" width="105.4%" height="104.7%" filterUnits="objectBoundingBox" id="filter-1">
+            <feOffset dx="0" dy="2" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="2" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.5 0" type="matrix" in="shadowBlurOuter1" result="shadowMatrixOuter1"></feColorMatrix>
+            <feMerge>
+                <feMergeNode in="shadowMatrixOuter1"></feMergeNode>
+                <feMergeNode in="SourceGraphic"></feMergeNode>
+            </feMerge>
+        </filter>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="password" filter="url(#filter-1)" transform="translate(9.000000, 9.000000)" fill="#FFFFFF" fill-rule="nonzero">
+            <circle id="Oval" cx="338" cy="346" r="20"></circle>
+            <path d="M428,362 C439.046,362 448,353.046 448,342 L448,268 C448,223.888 412.112,188 368,188 L343.963,188 L343.963,117.466 C343.963,52.695 290.131,0 223.963,0 C157.795,0 103.963,52.695 103.963,117.466 L103.963,188 L80,188 C35.888,188 0,223.888 0,268 L0,432 C0,476.112 35.888,512 80,512 L368,512 C412.112,512 448,476.112 448,432 C448,420.954 439.046,412 428,412 C416.954,412 408,420.954 408,432 C408,454.056 390.056,472 368,472 L80,472 C57.944,472 40,454.056 40,432 L40,268 C40,245.944 57.944,228 80,228 L368,228 C390.056,228 408,245.944 408,268 L408,342 C408,353.046 416.954,362 428,362 Z M303.963,188 L143.963,188 L143.963,117.466 C143.963,74.751 179.851,40 223.963,40 C268.075,40 303.963,74.751 303.963,117.466 L303.963,188 Z" id="Shape"></path>
+            <circle id="Oval" cx="187" cy="346" r="20"></circle>
+            <circle id="Oval" cx="112" cy="346" r="20"></circle>
+            <circle id="Oval" cx="262" cy="346" r="20"></circle>
+        </g>
+    </g>
+</svg>
