@@ -1,3 +1,4 @@
+import 'package:bitrise_monitor/GrantAccess/grant_access_screen.dart';
 import 'package:bitrise_monitor/Landing/widgets/logo_widget.dart';
 import 'package:flutter/material.dart';
 
@@ -52,7 +53,14 @@ class _GetStartedButton extends StatelessWidget {
         style: ButtonStyle(
           backgroundColor: MaterialStateProperty.all(Colors.white),
         ),
-        onPressed: () {},
+        onPressed: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (_) => GrantAccessScreen(),
+            ),
+          );
+        },
         child: Padding(
           padding: const EdgeInsets.only(right: 16, left: 16),
           child: Text(
