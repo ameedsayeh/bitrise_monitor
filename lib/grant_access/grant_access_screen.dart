@@ -1,8 +1,15 @@
+import 'package:bitrise_monitor/Services/bitrise_client.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:loading_animations/loading_animations.dart';
 
-class GrantAccessScreen extends StatelessWidget {
+class GrantAccessScreen extends StatefulWidget {
+  @override
+  _GrantAccessScreenState createState() => _GrantAccessScreenState();
+}
+
+class _GrantAccessScreenState extends State<GrantAccessScreen> {
+  final tokenTextController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -21,9 +28,14 @@ class GrantAccessScreen extends StatelessWidget {
                       height: 150,
                       child: SvgPicture.asset("lib/assets/images/lock.svg")),
                   _EnterTokenText(),
-                  _TokenTextField(),
+                  _TokenTextField(textController: this.tokenTextController),
                   _HowToText(),
-                  _GrantAccessButton(),
+                  _GrantAccessButton(
+                    onClick: () {
+                      BitriseClient.instance
+                          .checkAuthorization(this.tokenTextController.text);
+                    },
+                  ),
                 ],
               ),
             ),
@@ -35,9 +47,9 @@ class GrantAccessScreen extends StatelessWidget {
 }
 
 class _GrantAccessButton extends StatelessWidget {
-  const _GrantAccessButton({
-    Key? key,
-  }) : super(key: key);
+  const _GrantAccessButton({Key? key, required this.onClick}) : super(key: key);
+
+  final Function onClick;
 
   @override
   Widget build(BuildContext context) {
@@ -49,7 +61,9 @@ class _GrantAccessButton extends StatelessWidget {
           style: ButtonStyle(
             backgroundColor: MaterialStateProperty.all(Colors.white),
           ),
-          onPressed: () {},
+          onPressed: () {
+            this.onClick();
+          },
           child: Padding(
             padding: const EdgeInsets.only(right: 16, left: 16),
             child: Text(
@@ -116,9 +130,10 @@ class _EnterTokenText extends StatelessWidget {
 }
 
 class _TokenTextField extends StatelessWidget {
-  const _TokenTextField({
-    Key? key,
-  }) : super(key: key);
+  final TextEditingController textController;
+
+  const _TokenTextField({Key? key, required this.textController})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -127,6 +142,7 @@ class _TokenTextField extends StatelessWidget {
       child: Container(
         child: Center(
           child: TextField(
+            controller: textController,
             decoration: InputDecoration(
                 border: InputBorder.none,
                 focusedBorder: InputBorder.none,

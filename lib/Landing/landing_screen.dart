@@ -1,4 +1,4 @@
-import 'package:bitrise_monitor/GrantAccess/grant_access_screen.dart';
+import 'package:bitrise_monitor/grant_access/grant_access_screen.dart';
 import 'package:bitrise_monitor/Landing/widgets/logo_widget.dart';
 import 'package:flutter/material.dart';
 
