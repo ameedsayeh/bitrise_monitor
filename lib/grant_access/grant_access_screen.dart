@@ -18,30 +18,34 @@ class _GrantAccessScreenState extends State<GrantAccessScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Color(0xFF381A4B),
-      body: SingleChildScrollView(
-        physics: AlwaysScrollableScrollPhysics(),
-        child: SizedBox(
-          height: MediaQuery.of(context).size.height,
-          child: SafeArea(
-            child: Padding(
-              padding:
-                  const EdgeInsets.symmetric(horizontal: 24.0, vertical: 32.0),
-              child: Column(
-                children: [
-                  SizedBox(
-                      height: 150,
-                      child: SvgPicture.asset("lib/assets/images/lock.svg")),
-                  EnterTokenText(),
-                  TokenTextField(textController: this.tokenTextController),
-                  HowToText(),
-                  GrantAccessButton(
-                    onClick: () {
-                      BitriseClient.instance
-                          .checkAuthorization(this.tokenTextController.text);
-                    },
-                  ),
-                ],
-              ),
+      body: buildPage(context),
+    );
+  }
+
+  Widget buildPage(BuildContext context) {
+    return SingleChildScrollView(
+      physics: AlwaysScrollableScrollPhysics(),
+      child: SizedBox(
+        height: MediaQuery.of(context).size.height,
+        child: SafeArea(
+          child: Padding(
+            padding:
+                const EdgeInsets.symmetric(horizontal: 24.0, vertical: 32.0),
+            child: Column(
+              children: [
+                SizedBox(
+                    height: 150,
+                    child: SvgPicture.asset("lib/assets/images/lock.svg")),
+                EnterTokenText(),
+                TokenTextField(textController: this.tokenTextController),
+                HowToText(),
+                GrantAccessButton(
+                  onClick: () {
+                    BitriseClient.instance
+                        .checkAuthorization(this.tokenTextController.text);
+                  },
+                ),
+              ],
             ),
           ),
         ),
