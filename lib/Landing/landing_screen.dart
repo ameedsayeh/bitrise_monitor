@@ -1,5 +1,6 @@
-import 'package:bitrise_monitor/grant_access/grant_access_screen.dart';
-import 'package:bitrise_monitor/Landing/widgets/logo_widget.dart';
+import 'widgets/logo_widget.dart';
+import 'widgets/get_started_button.dart';
+import 'widgets/landing_text.dart';
 import 'package:flutter/material.dart';
 
 class LandingScreen extends StatelessWidget {
@@ -22,13 +23,13 @@ class LandingScreen extends StatelessWidget {
                   child: Column(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
-                  _LandingText(),
+                  LandingText(),
                   Padding(
                     padding: const EdgeInsets.only(
                       top: 64,
                       bottom: 64,
                     ),
-                    child: _GetStartedButton(),
+                    child: GetStartedButton(),
                   ),
                 ],
               ))
@@ -36,70 +37,6 @@ class LandingScreen extends StatelessWidget {
           ),
         ),
       ),
-    );
-  }
-}
-
-class _GetStartedButton extends StatelessWidget {
-  const _GetStartedButton({
-    Key? key,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return SizedBox(
-      height: 60,
-      child: ElevatedButton(
-        style: ButtonStyle(
-          backgroundColor: MaterialStateProperty.all(Colors.white),
-        ),
-        onPressed: () {
-          Navigator.push(
-            context,
-            MaterialPageRoute(
-              builder: (_) => GrantAccessScreen(),
-            ),
-          );
-        },
-        child: Padding(
-          padding: const EdgeInsets.only(right: 16, left: 16),
-          child: Text(
-            "Get Started",
-            style: TextStyle(
-              color: Color(0xFF381A4B),
-              fontSize: 22,
-              fontFamily: "TTNorms",
-              fontWeight: FontWeight.bold,
-            ),
-          ),
-        ),
-      ),
-    );
-  }
-}
-
-class _LandingText extends StatelessWidget {
-  const _LandingText({
-    Key? key,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Text(
-      "Monitor & Manage your Bitrise Mobile App CI/CD from your mobile easily",
-      style: TextStyle(
-        color: Colors.white,
-        fontSize: 22,
-        fontFamily: "TTNorms",
-        fontWeight: FontWeight.bold,
-        shadows: [
-          Shadow(
-              offset: Offset(0, 2),
-              color: Colors.black.withAlpha(125),
-              blurRadius: 4),
-        ],
-      ),
-      textAlign: TextAlign.center,
     );
   }
 }
