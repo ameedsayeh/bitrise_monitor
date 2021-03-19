@@ -12,9 +12,6 @@ class GrantAccessButton extends StatelessWidget {
       child: SizedBox(
         height: 60,
         child: ElevatedButton(
-          style: ButtonStyle(
-            backgroundColor: MaterialStateProperty.all(Colors.white),
-          ),
           onPressed: () {
             this.onClick();
           },
@@ -29,6 +26,10 @@ class GrantAccessButton extends StatelessWidget {
                 fontWeight: FontWeight.bold,
               ),
             ),
+          ),
+          style: ElevatedButton.styleFrom(
+            primary: Colors.white,
+            onPrimary: Color(0xFF381A4B),
           ),
         ),
       ),
