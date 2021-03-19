@@ -1,6 +1,10 @@
-import 'package:bitrise_monitor/Services/bitrise_client.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:bitrise_monitor/Services/bitrise_client.dart';
+import 'widgets/enter_token_text.dart';
+import 'widgets/grant_access_button.dart';
+import 'widgets/how_to_text.dart';
+import 'widgets/token_textfield.dart';
 
 class GrantAccessScreen extends StatefulWidget {
   @override
@@ -27,10 +31,10 @@ class _GrantAccessScreenState extends State<GrantAccessScreen> {
                   SizedBox(
                       height: 150,
                       child: SvgPicture.asset("lib/assets/images/lock.svg")),
-                  _EnterTokenText(),
-                  _TokenTextField(textController: this.tokenTextController),
-                  _HowToText(),
-                  _GrantAccessButton(
+                  EnterTokenText(),
+                  TokenTextField(textController: this.tokenTextController),
+                  HowToText(),
+                  GrantAccessButton(
                     onClick: () {
                       BitriseClient.instance
                           .checkAuthorization(this.tokenTextController.text);
@@ -40,128 +44,6 @@ class _GrantAccessScreenState extends State<GrantAccessScreen> {
               ),
             ),
           ),
-        ),
-      ),
-    );
-  }
-}
-
-class _GrantAccessButton extends StatelessWidget {
-  const _GrantAccessButton({Key? key, required this.onClick}) : super(key: key);
-
-  final Function onClick;
-
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(top: 32.0),
-      child: SizedBox(
-        height: 60,
-        child: ElevatedButton(
-          style: ButtonStyle(
-            backgroundColor: MaterialStateProperty.all(Colors.white),
-          ),
-          onPressed: () {
-            this.onClick();
-          },
-          child: Padding(
-            padding: const EdgeInsets.only(right: 16, left: 16),
-            child: Text(
-              "Grant Access",
-              style: TextStyle(
-                color: Color(0xFF381A4B),
-                fontSize: 22,
-                fontFamily: "TTNorms",
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-          ),
-        ),
-      ),
-    );
-  }
-}
-
-class _HowToText extends StatelessWidget {
-  const _HowToText({
-    Key? key,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(top: 32),
-      child: Text(
-        "How to get a token?",
-        style: TextStyle(
-          color: Colors.white,
-          fontSize: 16,
-          fontFamily: "TTNorms",
-          fontWeight: FontWeight.bold,
-          decoration: TextDecoration.underline,
-        ),
-        textAlign: TextAlign.center,
-      ),
-    );
-  }
-}
-
-class _EnterTokenText extends StatelessWidget {
-  const _EnterTokenText({
-    Key? key,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(bottom: 32, top: 32),
-      child: Text(
-        "Please enter your bitrise access token",
-        style: TextStyle(
-          color: Colors.white,
-          fontSize: 22,
-          fontFamily: "TTNorms",
-          fontWeight: FontWeight.bold,
-        ),
-        textAlign: TextAlign.center,
-      ),
-    );
-  }
-}
-
-class _TokenTextField extends StatelessWidget {
-  final TextEditingController textController;
-
-  const _TokenTextField({Key? key, required this.textController})
-      : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return SizedBox(
-      height: 60,
-      child: Container(
-        child: Center(
-          child: TextField(
-            controller: textController,
-            decoration: InputDecoration(
-                border: InputBorder.none,
-                focusedBorder: InputBorder.none,
-                enabledBorder: InputBorder.none,
-                errorBorder: InputBorder.none,
-                disabledBorder: InputBorder.none,
-                contentPadding: EdgeInsets.symmetric(horizontal: 16),
-                hintText: "Access Token"),
-            style: TextStyle(
-              color: Color(0xFF381A4B),
-              fontSize: 18,
-              fontFamily: "TTNorms",
-              fontWeight: FontWeight.bold,
-            ),
-          ),
-        ),
-        decoration: BoxDecoration(
-          color: Colors.white,
-          borderRadius: BorderRadius.circular(30),
         ),
       ),
     );
