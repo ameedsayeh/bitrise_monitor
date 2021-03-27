@@ -1,3 +1,4 @@
+import 'package:bitrise_monitor/grant_access_tutorial/grant_access_tutorial.dart';
 import 'package:flutter/material.dart';
 
 class HowToGetTokenButton extends StatelessWidget {
@@ -10,7 +11,14 @@ class HowToGetTokenButton extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.only(top: 32),
       child: TextButton(
-        onPressed: () => {},
+        onPressed: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (_) => GrantAccessTutorial(),
+            ),
+          );
+        },
         child: Text(
           "How to get a token?",
           style: TextStyle(
