@@ -8,8 +8,8 @@ App is still under construction.
 
 - [x] Landing.
 - [x] Grant Access.
-- [ ] Grant Access Tutorial.
-- [ ] Alerts.
+- [x] Grant Access Tutorial.
+- [x] Alerts.
 - [ ] Apps list.
 - [ ] Builds list.
 - [ ] Build details.
